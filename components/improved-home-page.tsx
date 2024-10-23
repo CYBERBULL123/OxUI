@@ -9,7 +9,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Switch } from "@/components/ui/switch"
-import { Shield, Lock, Users, BarChart3, Globe, Zap, Brain, Scan, FileText, Palette, Sun, Moon, ChevronDown } from 'lucide-react'
+import { Shield, Lock, Users, BarChart3, Globe, Zap, Brain, Scan, FileText, Palette, Sun, Moon, ChevronDown, Globe2 } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
 import Particles from 'react-tsparticles'
@@ -187,7 +187,7 @@ export function ImprovedHomePageComponent() {
         <nav className={`sticky top-0 z-50 bg-background/80 backdrop-blur-sm border-b border-border transition-transform duration-300 ${isVisible ? 'translate-y-0' : '-translate-y-full'}`}>
           <div className="container mx-auto px-4 py-4 flex flex-col lg:flex-row justify-between items-center">
             <Link href="/" className="text-2xl font-bold flex items-center mb-4 lg:mb-0">
-              <Brain className="w-8 h-8 mr-2 text-primary" />
+              <Globe2 className="w-8 h-8 mr-2 text-primary" />
               OxSecure Intelligence
             </Link>
             <div className="flex flex-col lg:flex-row items-center space-y-2 lg:space-y-0 lg:space-x-4">
