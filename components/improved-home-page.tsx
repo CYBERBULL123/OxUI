@@ -184,7 +184,7 @@ export function ImprovedHomePageComponent() {
         />
 
         {/* Navigation */}
-        <nav className={`sticky top-0 z-50 bg-background/80 backdrop-blur-sm border-b border-border transition-transform duration-300 ${isVisible ? 'translate-y-0' : '-translate-y-full'}`}>
+        <nav className={`fixed top-0 w-full z-50 backdrop-blur-md transition-transform duration-300 ${isVisible ? 'translate-y-0' : '-translate-y-full'}`}>
           <div className="container mx-auto px-4 py-4 flex flex-col lg:flex-row justify-between items-center">
             <Link href="/" className="text-2xl font-bold flex items-center mb-4 lg:mb-0">
               <Globe2 className="w-8 h-8 mr-2 text-primary" />
@@ -206,6 +206,7 @@ export function ImprovedHomePageComponent() {
             </div>
           </div>
         </nav>
+
 
 
         {/* Hero Section */}
@@ -259,9 +260,16 @@ export function ImprovedHomePageComponent() {
             animate={{ y: [0, -5, 0] }} // Infinite animation
             transition={{ duration: 1, repeat: Infinity }}
           >
-            <Button size="lg" className="bg-primary hover:bg-primary/90">Get Started</Button>
+            <Button 
+              size="lg" 
+              className="bg-primary hover:bg-primary/90" 
+              onClick={() => window.open("https://oxsuite.streamlit.app", "_blank")}
+            >
+              Get Started
+            </Button>
             <Button size="lg" variant="outline">Learn More</Button>
           </motion.div>
+
 
           {/* Testing Information */}
           <motion.div
