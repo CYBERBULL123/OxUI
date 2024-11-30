@@ -278,18 +278,19 @@ export function ImprovedHomePageComponent() {
                   What sets us apart is our commitment to sustainability. Our tools operate in an eco-friendly serverless environment, reducing computational exhaustion and minimizing carbon emissions. Join us on this journey to redefine cybersecurity while protecting our planet. 🌱🌍
                 </p>
               </div>
-              <div className="relative h-96">
+              <div className="relative h-96 group">
                 <Image
                   src="https://i.ibb.co/4SptTGK/Arch.png"
                   alt="OxSecure Suite Architecture"
                   layout="fill"
                   objectFit="contain"
-                  className="rounded-lg shadow-lg"
+                  className="rounded-lg shadow-lg group-hover:scale-110  transition-transform duration-300 ease-in-out"
                 />
               </div>
             </div>
           </div>
         </section>
+
 
         {/* Interactive Dashboard Preview */}
         <section className="py-16 relative z-10">
