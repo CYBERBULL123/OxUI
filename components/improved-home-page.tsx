@@ -12,8 +12,9 @@ import { Switch } from "@/components/ui/switch"
 import { Shield, Lock, Users, BarChart3, Globe, Zap, Brain, Scan, FileText, Palette, Sun, Moon, ChevronDown, Globe2 } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
-import Particles from 'react-tsparticles'
-import { loadFull } from "tsparticles"
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 const securityData = [
   { name: 'Jan', threats: 400, mitigations: 380 },
@@ -89,13 +90,6 @@ export function ImprovedHomePageComponent() {
     }
   }, [darkMode, mounted]);
 
-  const particlesInit = async (main) => {
-    await loadFull(main);
-  }
-
-  const particlesLoaded = (container) => {
-    console.log("Particles container loaded", container);
-  }
 
   if (!mounted) return null;
 
@@ -103,85 +97,6 @@ export function ImprovedHomePageComponent() {
     <div className={`min-h-screen ${darkMode ? 'dark' : ''}`}>
       <div className="bg-background text-foreground transition-colors duration-300 relative">
 
-        {/* Particle.js Background */}
-        <Particles
-          id="tsparticles"
-          init={particlesInit}
-          loaded={particlesLoaded}
-          options={{
-            background: {
-              color: {
-                value: "transparent",
-              },
-            },
-            fpsLimit: 120,
-            interactivity: {
-              events: {
-                onClick: {
-                  enable: true,
-                  mode: "push",
-                },
-                onHover: {
-                  enable: true,
-                  mode: "repulse",
-                },
-                resize: true,
-              },
-              modes: {
-                push: {
-                  quantity: 4,
-                },
-                repulse: {
-                  distance: 200,
-                  duration: 0.4,
-                },
-              },
-            },
-            particles: {
-              color: {
-                value: darkMode ? "#ffffff" : "#000000",
-              },
-              links: {
-                color: darkMode ? "#ffffff" : "#000000",
-                distance: 150,
-                enable: true,
-                opacity: 0.5,
-                width: 1,
-              },
-              collisions: {
-                enable: true,
-              },
-              move: {
-                direction: "none",
-                enable: true,
-                outModes: {
-                  default: "bounce",
-                },
-                random: false,
-                speed: 2,
-                straight: false,
-              },
-              number: {
-                density: {
-                  enable: true,
-                  area: 800,
-                },
-                value: 80,
-              },
-              opacity: {
-                value: 0.5,
-              },
-              shape: {
-                type: "circle",
-              },
-              size: {
-                value: { min: 1, max: 5 },
-              },
-            },
-            detectRetina: true,
-          }}
-          className="fixed top-0 left-0 w-full h-full z-[-1]"
-        />
 
         {/* Navigation */}
         <nav className={`fixed top-0 w-full z-50 backdrop-blur-md transition-transform duration-300 ${isVisible ? 'translate-y-0' : '-translate-y-full'}`}>
@@ -457,8 +372,27 @@ export function ImprovedHomePageComponent() {
         {/* Gallery Section */}
         <section id="gallery" className="py-16 relative z-10">
           <div className="container mx-auto px-4">
-            <h2 className="text-3xl font-bold mb-12 text-center">OxSecure Suite Gallery 🖼️</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <h2 className="text-3xl font-bold mb-12 text-center">
+              OxSuite Gallery 🖼️
+            </h2>
+            <Slider
+              dots={true}
+              infinite={true}
+              speed={500}
+              slidesToShow={1}
+              slidesToScroll={1}
+              autoplay={true}
+              autoplaySpeed={3000}
+              arrows={false}
+              appendDots={(dots) => (
+                <div>
+                  <ul className="custom-dots">{dots}</ul>
+                </div>
+              )}
+              customPaging={() => (
+                <button className="w-3 h-3 bg-gray-300 rounded-full hover:bg-white dark:bg-gray-500 dark:hover:bg-white"></button>
+              )}
+            >
               {[
                 "https://i.ibb.co/5XZpjv0/Screenshot-2024-10-01-162209.png",
                 "https://i.ibb.co/Lxwt1pd/Screenshot-2024-10-01-162237.png",
@@ -473,25 +407,26 @@ export function ImprovedHomePageComponent() {
                 "https://i.ibb.co/VDFVcMm/Screenshot-2024-10-01-151513.png",
                 "https://i.ibb.co/19k8W3L/Screenshot-2024-10-01-151544.png",
                 "https://i.ibb.co/HHF5kFq/Screenshot-2024-10-01-151612.png",
-                "https://i.ibb.co/bWmzczw/Screenshot-2024-10-01-151707.png"
+                "https://i.ibb.co/bWmzczw/Screenshot-2024-10-01-151707.png",
               ].map((src, index) => (
-                <motion.div
+                <div
                   key={index}
-                  className="relative h-48 rounded-lg overflow-hidden shadow-lg"
-                  whileHover={{ scale: 1.05 }}
-                  transition={{ duration: 0.3 }}
+                  className="relative flex items-center justify-center group"
                 >
-                  <Image
-                    src={src}
-                    alt={`Screenshot ${index + 1}`}
-                    layout="fill"
-                    objectFit="cover"
-                  />
-                </motion.div>
+                  <div className="relative  w-full overflow-hidden rounded-3xl shadow-lg border-4 border-transparent group-hover:border-indigo-500 transition-all duration-500">
+                    <img
+                      src={src}
+                      alt={`Screenshot ${index + 1}`}
+                      className="w-full h-[300px] sm:h-[400px] lg:h-[calc(100vw/2.1)] object-contain rounded-3xl transition-transform duration-500 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black opacity-0 group-hover:opacity-30 transition-opacity duration-500"></div>
+                  </div>
+                </div>
               ))}
-            </div>
+            </Slider>
           </div>
         </section>
+
 
         {/* Feedback Section */}
         <section id="contact" className="py-16 bg-muted/50  relative z-10">
