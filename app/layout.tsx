@@ -7,6 +7,7 @@ const geistSans = localFont({
   variable: "--font-geist-sans",
   weight: "100 900",
 });
+
 const geistMono = localFont({
   src: "./fonts/GeistMonoVF.woff",
   variable: "--font-geist-mono",
@@ -14,16 +15,17 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "OxSecure Intelligence", // Main title for the page
-  description: "OxSecure Intelligence offers advanced security solutions, leveraging cutting-edge technology for threat detection and response. Discover our suite of AI-powered tools designed to protect your digital assets.",
+  title: "OxSecure Intelligence",
+  description:
+    "OxSecure Intelligence offers advanced security solutions, leveraging cutting-edge technology for threat detection and response. Discover our suite of AI-powered tools designed to protect your digital assets.",
   keywords: "security, AI, threat detection, cybersecurity, OxSecure Intelligence",
-  author: "Aditya Pandey", // Replace with your name or company name
-  robots: "index, follow", // Directives for search engines
+  author: "Aditya Pandey",
+  robots: "index, follow",
   openGraph: {
-    title: "OxSecure Intelligence", // Open Graph title
+    title: "OxSecure Intelligence",
     description: "Explore OxSecure Intelligence for comprehensive security solutions using AI technologies.",
     url: "#", // Replace with your actual URL
-    site_name: "OxSecure Intelligence", // Site name for Open Graph
+    site_name: "OxSecure Intelligence",
     images: [
       {
         url: "##", // Replace with an actual image URL
@@ -34,14 +36,13 @@ export const metadata: Metadata = {
     ],
   },
   twitter: {
-    cardType: "summary_large_image", // Twitter card type
+    card: "summary_large_image",
     site: "##", // Replace with your Twitter handle
     title: "OxSecure Intelligence",
     description: "Explore OxSecure Intelligence for comprehensive security solutions using AI technologies.",
-    image: "##", // Replace with an actual image URL
+    images: ["##"], // Replace with an actual image URL
   },
 };
-
 
 export default function RootLayout({
   children,
@@ -50,6 +51,28 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <link rel="icon" href="logo.ico" type="image/x-icon" />
+        <title>{metadata.title}</title>
+        <meta name="description" content={metadata.description} />
+        <meta name="keywords" content={metadata.keywords} />
+        <meta name="author" content={metadata.author} />
+        <meta name="robots" content={metadata.robots} />
+        {/* Open Graph Meta Tags */}
+        <meta property="og:title" content={metadata.openGraph.title} />
+        <meta property="og:description" content={metadata.openGraph.description} />
+        <meta property="og:url" content={metadata.openGraph.url} />
+        <meta property="og:site_name" content={metadata.openGraph.site_name} />
+        {metadata.openGraph.images.map((image, index) => (
+          <meta key={index} property="og:image" content={image.url} />
+        ))}
+        {/* Twitter Meta Tags */}
+        <meta name="twitter:card" content={metadata.twitter.card} />
+        <meta name="twitter:site" content={metadata.twitter.site} />
+        <meta name="twitter:title" content={metadata.twitter.title} />
+        <meta name="twitter:description" content={metadata.twitter.description} />
+        {metadata.twitter.images && <meta name="twitter:image" content={metadata.twitter.images[0]} />}
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >

@@ -1,5 +1,6 @@
-import { ImprovedHomePageComponent } from "@/components/improved-home-page"
+import { ImprovedHomePageComponent } from "@/components/landing"
 
 export default function Page() {
   return <ImprovedHomePageComponent />
 }
+
