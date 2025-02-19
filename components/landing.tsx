@@ -318,7 +318,7 @@ export function ImprovedHomePageComponent() {
                     <CardContent className="p-6 flex flex-col h-full">
                       <blockquote className="text-lg mb-4 flex-grow">{testimonial.content}</blockquote>
                       <div className="flex items-center">
-                        <Image src={testimonial.avatar} width={60} height={60} alt={testimonial.name} className="rounded-full mr-4" />
+                        {/* <Image src={testimonial.avatar} width={60} height={60} alt={testimonial.name} className="rounded-full mr-4" /> */}
                         <div>
                           <p className="font-semibold">{testimonial.name}</p>
                           <p className="text-sm text-muted-foreground">{testimonial.position}</p>
@@ -351,7 +351,7 @@ export function ImprovedHomePageComponent() {
               </div>
               <div className="relative h-96 group">
                 <Image
-                  src="https://i.ibb.co/4SptTGK/Arch.png"
+                  src="/Arch.png"
                   alt="OxSecure Suite Architecture"
                   layout="fill"
                   objectFit="contain"
@@ -569,7 +569,7 @@ export function ImprovedHomePageComponent() {
               </div>
             </div>
             <div className="mt-8 pt-8 border-t border-muted-foreground/20 text-center">
-              <p>© 2024 OxSecure Suite. All Rights Reserved. Built with ❤️ by Aadi 🤠</p>
+              <p>© 2024 OxSecure Suite. All Rights Reserved.</p>
               <p className="mt-2">
                 <Link href="https://www.linkedin.com/in/aditya-pandey" className="hover:underline">
                   Connect with me on LinkedIn: Aditya Pandey
