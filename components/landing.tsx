@@ -144,7 +144,7 @@ export function ImprovedHomePageComponent() {
               initial={{ scale: 0, rotate: -180 }}
               animate={{ scale: 1, rotate: 0 }}
               transition={{ type: "spring", stiffness: 260, damping: 20 }}
-              className="mb-8"
+              className="mb-8 z-10"
             >
               <Shield className="w-24 h-24 mx-auto text-primary" />
             </motion.div>
@@ -153,8 +153,8 @@ export function ImprovedHomePageComponent() {
             <motion.h1
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, ease: "easeInOut" }}
-              className="text-5xl md:text-6xl font-bold mb-4 text-foreground"
+              transition={{ duration: 1, ease: "easeInOut", repeat: Infinity, repeatType: "reverse" }}
+              className="text-5xl font-bold mb-4 z-10 text-white drop-shadow-lg"
             >
               <span className="text-primary">OxSuite</span>
             </motion.h1>
@@ -163,29 +163,26 @@ export function ImprovedHomePageComponent() {
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, delay: 0.5 }}
-              className="text-xl md:text-2xl mb-8 max-w-2xl mx-auto text-muted-foreground"
+              transition={{ duration: 1, delay: 1 }}
+              className="text-xl md:text-2xl mb-8 max-w-2xl mx-auto z-10 text-white drop-shadow-lg"
             >
               AI-Powered Cybersecurity Tools for the Modern Enterprise
             </motion.p>
 
             {/* CTA Buttons */}
             <motion.div
-              className="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, delay: 1 }}
+              className="flex justify-center space-x-4 z-10"
+              animate={{ y: [0, -5, 0] }} // Infinite animation
+              transition={{ duration: 1, repeat: Infinity }}
             >
               <Button 
                 size="lg" 
-                className="bg-primary hover:bg-primary/90 text-primary-foreground"
+                className="bg-primary hover:bg-primary/90" 
                 onClick={() => window.open("https://oxsuite.streamlit.app", "_blank")}
               >
                 Get Started
               </Button>
-              <Button size="lg" variant="outline">
-                Watch Demo
-              </Button>
+              <Button size="lg" variant="outline">Learn More</Button>
             </motion.div>
 
             {/* Social Proof */}
@@ -446,7 +443,7 @@ export function ImprovedHomePageComponent() {
 
         {/* Gallery Section */}
         <section id="gallery" className="py-16 relative z-10">
-          <div className="container mx-auto px-4">
+          <div className="container mx-auto px-2">
             <h2 className="text-3xl font-bold mb-12 text-center">
               OxSuite Gallery 🖼️
             </h2>
@@ -468,31 +465,16 @@ export function ImprovedHomePageComponent() {
                 <button className="w-3 h-3 bg-gray-300 rounded-full hover:bg-white dark:bg-gray-500 dark:hover:bg-white"></button>
               )}
             >
-              {[
-                "https://i.ibb.co/5XZpjv0/Screenshot-2024-10-01-162209.png",
-                "https://i.ibb.co/Lxwt1pd/Screenshot-2024-10-01-162237.png",
-                "https://i.ibb.co/sFyqVSV/Screenshot-2024-10-01-151930.png",
-                "https://i.ibb.co/nfZ3KB6/Screenshot-2024-10-01-152112.png",
-                "https://i.ibb.co/VVVKQ2F/Screenshot-2024-10-01-152136.png",
-                "https://i.ibb.co/vsjP2QP/Screenshot-2024-10-01-152202.png",
-                "https://i.ibb.co/8dtGL3p/Screenshot-2024-10-01-162306.png",
-                "https://i.ibb.co/RY8ZTpb/Screenshot-2024-10-01-150658.png",
-                "https://i.ibb.co/bby0bkf/Screenshot-2024-10-01-151220.png",
-                "https://i.ibb.co/Qv160cv/Screenshot-2024-10-01-151259.png",
-                "https://i.ibb.co/VDFVcMm/Screenshot-2024-10-01-151513.png",
-                "https://i.ibb.co/19k8W3L/Screenshot-2024-10-01-151544.png",
-                "https://i.ibb.co/HHF5kFq/Screenshot-2024-10-01-151612.png",
-                "https://i.ibb.co/bWmzczw/Screenshot-2024-10-01-151707.png",
-              ].map((src, index) => (
+              {Array.from({ length: 20 }, (_, i) => `/${i + 1}.png`).map((src, index) => (
                 <div
                   key={index}
                   className="relative flex items-center justify-center group"
                 >
-                  <div className="relative  w-full overflow-hidden rounded-3xl shadow-lg border-4 border-transparent group-hover:border-indigo-500 transition-all duration-500">
+                  <div className="relative  w-full overflow-hidden rounded-3xl shadow-lg border-4 border-transparent">
                     <img
                       src={src}
                       alt={`Screenshot ${index + 1}`}
-                      className="w-full h-[300px] sm:h-[400px] lg:h-[calc(100vw/2.1)] object-contain rounded-3xl transition-transform duration-500 group-hover:scale-105"
+                      className="w-full h-[300px] sm:h-[400px] lg:h-[calc(80vw/2.1)] object-contain rounded-3xl transition-transform duration-500 group-hover:scale-105"
                     />
                     <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black opacity-0 group-hover:opacity-30 transition-opacity duration-500"></div>
                   </div>
@@ -553,7 +535,7 @@ export function ImprovedHomePageComponent() {
               </Link>
             </div>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-              {/* <div>
+              <div>
                 <h3 className="font-semibold mb-4">Product</h3>
                 <ul className="space-y-2">
                   <li><Link href="#" className="hover:underline">Features</Link></li>
@@ -584,7 +566,7 @@ export function ImprovedHomePageComponent() {
                   <li><Link href="#" className="hover:underline">Terms of Service</Link></li>
                   <li><Link href="#" className="hover:underline">Cookie Policy</Link></li>
                 </ul>
-              </div> */}
+              </div>
             </div>
             <div className="mt-8 pt-8 border-t border-muted-foreground/20 text-center">
               <p>© 2024 OxSecure Suite. All Rights Reserved. Built with ❤️ by Aadi 🤠</p>
