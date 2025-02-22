@@ -217,7 +217,7 @@ export function ImprovedHomePageComponent() {
               {[
                 {
                   icon: Brain,
-                  title: "OxInteLL 🧠",
+                  title: "OxInteLL",
                   description: "Advanced Cybersecurity Intelligence",
                   features: [
                     "AI-driven Threat Detection",
@@ -229,7 +229,7 @@ export function ImprovedHomePageComponent() {
                 },
                 {
                   icon: FileText,
-                  title: "OxRAG 🤿",
+                  title: "OxRAG",
                   description: "Intelligent File Analysis",
                   features: [
                     "Multi-format Document Analysis",
@@ -241,7 +241,7 @@ export function ImprovedHomePageComponent() {
                 },
                 {
                   icon: Palette,
-                  title: "OxImaGen 🎨",
+                  title: "OxImaGen",
                   description: "AI-Powered Visual Security",
                   features: [
                     "Secure Image Generation",
@@ -253,7 +253,7 @@ export function ImprovedHomePageComponent() {
                 },
                 {
                   icon: Scan,
-                  title: "OxScanner 🚀",
+                  title: "OxScanner",
                   description: "Comprehensive Network Security",
                   features: [
                     "Advanced Network Scanning",
@@ -336,7 +336,7 @@ export function ImprovedHomePageComponent() {
         {/* How It Works Section */}
         <section id="how-it-works" className="py-16 bg-muted/50 relative z-10">
           <div className="container mx-auto px-4">
-            <h2 className="text-3xl font-bold mb-12 text-center">How It Works 🔍</h2>
+            <h2 className="text-3xl font-bold mb-12 text-center">How It Works</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
               <div>
                 <p className="text-lg mb-4">
@@ -445,7 +445,7 @@ export function ImprovedHomePageComponent() {
         <section id="gallery" className="py-16 relative z-10">
           <div className="container mx-auto px-2">
             <h2 className="text-3xl font-bold mb-12 text-center">
-              OxSuite Gallery 🖼️
+              OxSuite Gallery
             </h2>
             <Slider
               dots={true}
@@ -569,12 +569,7 @@ export function ImprovedHomePageComponent() {
               </div>
             </div>
             <div className="mt-8 pt-8 border-t border-muted-foreground/20 text-center">
-              <p>© 2024 OxSecure Suite. All Rights Reserved.</p>
-              <p className="mt-2">
-                <Link href="https://www.linkedin.com/in/aditya-pandey" className="hover:underline">
-                  Connect with me on LinkedIn: Aditya Pandey
-                </Link>
-              </p>
+              <p>© 2025 OxSecure Suite. All Rights Reserved.</p>
             </div>
           </div>
         </footer>
